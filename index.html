@@ -60,8 +60,11 @@ body:hover .cursor-dot{width:12px;height:12px}
 @keyframes headlineSlide{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .ask-headline em{font-style:italic;color:var(--rose-glow)}
 
-.ask-sub{position:relative;z-index:2;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--text-sub);font-style:italic;margin-bottom:40px;animation:subSlide .9s cubic-bezier(.34,1.56,.64,1) .55s both}
+.ask-sub{position:relative;z-index:2;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--text-sub);font-style:italic;margin-bottom:20px;animation:subSlide .9s cubic-bezier(.34,1.56,.64,1) .55s both}
 @keyframes subSlide{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* Valentine question */
+.valentine-question{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:700;color:var(--rose-glow);margin-bottom:40px;text-shadow:0 0 40px rgba(232,74,111,.5);animation:subSlide .9s cubic-bezier(.34,1.56,.64,1) .65s both}
 
 /* heart divider */
 .heart-div{position:relative;z-index:2;margin-bottom:38px;display:flex;align-items:center;justify-content:center;gap:14px;animation:subSlide .9s cubic-bezier(.34,1.56,.64,1) .7s both}
@@ -156,6 +159,7 @@ body:hover .cursor-dot{width:12px;height:12px}
   .btn{font-size:1.3rem;padding:14px 36px}
   .love-letter{padding:34px 20px}
   .yes-hero{padding:44px 18px 38px}
+  .valentine-question{font-size:clamp(1.5rem,4vw,2.2rem)}
 }
 </style>
 </head>
@@ -274,7 +278,9 @@ body:hover .cursor-dot{width:12px;height:12px}
 <div id="sparkleContainer" style="position:absolute;z-index:1;top:0;left:0;width:100%;height:100%;pointer-events:none"></div>
 
 <h1 class="ask-headline">Hey Babe,<br/>🌼</h1>
-<p class="ask-sub">I've been thinking about you Thoi… and I have a very important question…</b>Will you be my Valentine???</p>
+<p class="ask-sub">I've been thinking about you Thoi… and I have a very important question…</p>
+
+<h2 class="valentine-question">Will you be my Valentine? 💝</h2>
 
 <div class="heart-div">
   <div class="line"></div>
@@ -470,7 +476,7 @@ function goYes(){
   document.getElementById('askPage').classList.remove('active');
   document.getElementById('yesPage').classList.add('active');
   scrollTo(0,0);
-  setTimeout(launchConfetti,350);
+  // REMOVED: setTimeout(launchConfetti,350); - confetti now only on "Send Kiss" button
   // spawn floating hearts on yes page
   spawnFloatingHearts();
   // animate cards & titles with IntersectionObserver
